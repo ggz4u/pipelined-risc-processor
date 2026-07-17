@@ -1,0 +1,265 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_011599B0 .scope module, "id_ex_reg_tb" "id_ex_reg_tb" 2 1;
+ .timescale 0 0;
+v011910D0_0 .var "alu_op_in", 2 0;
+v01190FC8_0 .net "alu_op_out", 2 0, v01184100_0; 1 drivers
+v011913E8_0 .var "clk", 0 0;
+v01191230_0 .var "flush", 0 0;
+v01191020_0 .var "imm_addr_in", 7 0;
+v01191288_0 .net "imm_addr_out", 7 0, v01184838_0; 1 drivers
+v01190520_0 .var "jump_enable_in", 0 0;
+v01190B50_0 .net "jump_enable_out", 0 0, v01184680_0; 1 drivers
+v01190F18_0 .var "mem_read_in", 0 0;
+v01190628_0 .net "mem_read_out", 0 0, v01184208_0; 1 drivers
+v01190F70_0 .var "mem_write_in", 0 0;
+v01190A48_0 .net "mem_write_out", 0 0, v01184418_0; 1 drivers
+v01190DB8_0 .var "pc_in", 7 0;
+v01190578_0 .net "pc_out", 7 0, v011846D8_0; 1 drivers
+v011909F0_0 .var "rd_in", 2 0;
+v01190AF8_0 .net "rd_out", 2 0, v01184730_0; 1 drivers
+v01190E10_0 .var "read_data1_in", 7 0;
+v01190C00_0 .net "read_data1_out", 7 0, v01184520_0; 1 drivers
+v01190D60_0 .var "read_data2_in", 7 0;
+v011905D0_0 .net "read_data2_out", 7 0, v011845D0_0; 1 drivers
+v01190CB0_0 .var "reg_write_in", 0 0;
+v01190E68_0 .net "reg_write_out", 0 0, v01184310_0; 1 drivers
+v01190680_0 .var "rs1_in", 2 0;
+v01190D08_0 .net "rs1_out", 2 0, v011911D8_0; 1 drivers
+v01190AA0_0 .var "rs2_in", 2 0;
+v01190EC0_0 .net "rs2_out", 2 0, v01191128_0; 1 drivers
+v01190788_0 .var "rst", 0 0;
+v01190BA8_0 .var "stall", 0 0;
+v01190C58_0 .var "wb_select_in", 0 0;
+v011906D8_0 .net "wb_select_out", 0 0, v01191440_0; 1 drivers
+E_01183330 .event posedge, v01184368_0;
+S_01159A38 .scope module, "uut" "id_ex_reg" 2 35, 3 1, S_011599B0;
+ .timescale 0 0;
+v01184158_0 .net "alu_op_in", 2 0, v011910D0_0; 1 drivers
+v01184100_0 .var "alu_op_out", 2 0;
+v01184368_0 .net "clk", 0 0, v011913E8_0; 1 drivers
+v011841B0_0 .net "flush", 0 0, v01191230_0; 1 drivers
+v01184788_0 .net "imm_addr_in", 7 0, v01191020_0; 1 drivers
+v01184838_0 .var "imm_addr_out", 7 0;
+v01184578_0 .net "jump_enable_in", 0 0, v01190520_0; 1 drivers
+v01184680_0 .var "jump_enable_out", 0 0;
+v011843C0_0 .net "mem_read_in", 0 0, v01190F18_0; 1 drivers
+v01184208_0 .var "mem_read_out", 0 0;
+v01184260_0 .net "mem_write_in", 0 0, v01190F70_0; 1 drivers
+v01184418_0 .var "mem_write_out", 0 0;
+v01184470_0 .net "pc_in", 7 0, v01190DB8_0; 1 drivers
+v011846D8_0 .var "pc_out", 7 0;
+v011844C8_0 .net "rd_in", 2 0, v011909F0_0; 1 drivers
+v01184730_0 .var "rd_out", 2 0;
+v01184628_0 .net "read_data1_in", 7 0, v01190E10_0; 1 drivers
+v01184520_0 .var "read_data1_out", 7 0;
+v011847E0_0 .net "read_data2_in", 7 0, v01190D60_0; 1 drivers
+v011845D0_0 .var "read_data2_out", 7 0;
+v011842B8_0 .net "reg_write_in", 0 0, v01190CB0_0; 1 drivers
+v01184310_0 .var "reg_write_out", 0 0;
+v01191078_0 .net "rs1_in", 2 0, v01190680_0; 1 drivers
+v011911D8_0 .var "rs1_out", 2 0;
+v011912E0_0 .net "rs2_in", 2 0, v01190AA0_0; 1 drivers
+v01191128_0 .var "rs2_out", 2 0;
+v01191338_0 .net "rst", 0 0, v01190788_0; 1 drivers
+v01191180_0 .net "stall", 0 0, v01190BA8_0; 1 drivers
+v01191390_0 .net "wb_select_in", 0 0, v01190C58_0; 1 drivers
+v01191440_0 .var "wb_select_out", 0 0;
+E_01183390 .event posedge, v01191338_0, v01184368_0;
+    .scope S_01159A38;
+T_0 ;
+    %wait E_01183390;
+    %load/v 8, v01191338_0, 1;
+    %load/v 9, v011841B0_0, 1;
+    %or 8, 9, 1;
+    %jmp/0xz  T_0.0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011846D8_0, 0, 0;
+    %ix/load 0, 3, 0;
+    %assign/v0 v01184100_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01184310_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01184208_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01184418_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01191440_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01184680_0, 0, 0;
+    %ix/load 0, 8, 0;
+    %assign/v0 v01184520_0, 0, 0;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011845D0_0, 0, 0;
+    %ix/load 0, 3, 0;
+    %assign/v0 v01184730_0, 0, 0;
+    %ix/load 0, 3, 0;
+    %assign/v0 v011911D8_0, 0, 0;
+    %ix/load 0, 3, 0;
+    %assign/v0 v01191128_0, 0, 0;
+    %ix/load 0, 8, 0;
+    %assign/v0 v01184838_0, 0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v01191180_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_0.2, 8;
+    %load/v 8, v01184470_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011846D8_0, 0, 8;
+    %load/v 8, v01184158_0, 3;
+    %ix/load 0, 3, 0;
+    %assign/v0 v01184100_0, 0, 8;
+    %load/v 8, v011842B8_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01184310_0, 0, 8;
+    %load/v 8, v011843C0_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01184208_0, 0, 8;
+    %load/v 8, v01184260_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01184418_0, 0, 8;
+    %load/v 8, v01191390_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01191440_0, 0, 8;
+    %load/v 8, v01184578_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v01184680_0, 0, 8;
+    %load/v 8, v01184628_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v01184520_0, 0, 8;
+    %load/v 8, v011847E0_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011845D0_0, 0, 8;
+    %load/v 8, v011844C8_0, 3;
+    %ix/load 0, 3, 0;
+    %assign/v0 v01184730_0, 0, 8;
+    %load/v 8, v01191078_0, 3;
+    %ix/load 0, 3, 0;
+    %assign/v0 v011911D8_0, 0, 8;
+    %load/v 8, v011912E0_0, 3;
+    %ix/load 0, 3, 0;
+    %assign/v0 v01191128_0, 0, 8;
+    %load/v 8, v01184788_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v01184838_0, 0, 8;
+T_0.2 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_011599B0;
+T_1 ;
+    %set/v v011913E8_0, 0, 1;
+    %end;
+    .thread T_1;
+    .scope S_011599B0;
+T_2 ;
+    %delay 5, 0;
+    %load/v 8, v011913E8_0, 1;
+    %inv 8, 1;
+    %set/v v011913E8_0, 8, 1;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_011599B0;
+T_3 ;
+    %vpi_call 2 61 "$dumpfile", "id_ex_reg_tb.vcd";
+    %vpi_call 2 62 "$dumpvars", 1'sb0, S_011599B0;
+    %end;
+    .thread T_3;
+    .scope S_011599B0;
+T_4 ;
+    %vpi_call 2 67 "$monitor", "time=%0t  rst=%b stall=%b flush=%b | pc_in=%h -> pc_out=%h | alu_op_in=%b -> alu_op_out=%b | reg_write_out=%b", $time, v01190788_0, v01190BA8_0, v01191230_0, v01190DB8_0, v01190578_0, v011910D0_0, v01190FC8_0, v01190E68_0;
+    %end;
+    .thread T_4;
+    .scope S_011599B0;
+T_5 ;
+    %set/v v01190788_0, 1, 1;
+    %set/v v01190BA8_0, 0, 1;
+    %set/v v01191230_0, 0, 1;
+    %set/v v01190DB8_0, 0, 8;
+    %set/v v011910D0_0, 0, 3;
+    %set/v v01190CB0_0, 0, 1;
+    %set/v v01190F18_0, 0, 1;
+    %set/v v01190F70_0, 0, 1;
+    %set/v v01190C58_0, 0, 1;
+    %set/v v01190520_0, 0, 1;
+    %set/v v01190E10_0, 0, 8;
+    %set/v v01190D60_0, 0, 8;
+    %set/v v011909F0_0, 0, 3;
+    %set/v v01190680_0, 0, 3;
+    %set/v v01190AA0_0, 0, 3;
+    %set/v v01191020_0, 0, 8;
+    %wait E_01183330;
+    %delay 1, 0;
+    %set/v v01190788_0, 0, 1;
+    %movi 8, 1, 8;
+    %set/v v01190DB8_0, 8, 8;
+    %movi 8, 1, 3;
+    %set/v v011910D0_0, 8, 3;
+    %set/v v01190CB0_0, 1, 1;
+    %set/v v01190F18_0, 1, 1;
+    %movi 8, 2, 8;
+    %set/v v01190E10_0, 8, 8;
+    %movi 8, 3, 8;
+    %set/v v01190D60_0, 8, 8;
+    %movi 8, 1, 3;
+    %set/v v011909F0_0, 8, 3;
+    %movi 8, 2, 3;
+    %set/v v01190680_0, 8, 3;
+    %movi 8, 3, 3;
+    %set/v v01190AA0_0, 8, 3;
+    %movi 8, 4, 8;
+    %set/v v01191020_0, 8, 8;
+    %wait E_01183330;
+    %delay 1, 0;
+    %movi 8, 2, 8;
+    %set/v v01190DB8_0, 8, 8;
+    %movi 8, 2, 3;
+    %set/v v011910D0_0, 8, 3;
+    %set/v v01190CB0_0, 0, 1;
+    %wait E_01183330;
+    %delay 1, 0;
+    %set/v v01190BA8_0, 1, 1;
+    %movi 8, 9, 8;
+    %set/v v01190DB8_0, 8, 8;
+    %movi 8, 3, 3;
+    %set/v v011910D0_0, 8, 3;
+    %set/v v01190CB0_0, 1, 1;
+    %wait E_01183330;
+    %delay 1, 0;
+    %wait E_01183330;
+    %delay 1, 0;
+    %set/v v01190BA8_0, 0, 1;
+    %wait E_01183330;
+    %delay 1, 0;
+    %movi 8, 170, 8;
+    %set/v v01190DB8_0, 8, 8;
+    %movi 8, 4, 3;
+    %set/v v011910D0_0, 8, 3;
+    %set/v v01190CB0_0, 1, 1;
+    %wait E_01183330;
+    %delay 1, 0;
+    %set/v v01191230_0, 1, 1;
+    %wait E_01183330;
+    %delay 1, 0;
+    %set/v v01191230_0, 0, 1;
+    %movi 8, 187, 8;
+    %set/v v01190DB8_0, 8, 8;
+    %movi 8, 5, 3;
+    %set/v v011910D0_0, 8, 3;
+    %set/v v01190CB0_0, 1, 1;
+    %wait E_01183330;
+    %delay 1, 0;
+    %vpi_call 2 168 "$finish";
+    %end;
+    .thread T_5;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "id_ex_reg_tb.v";
+    "id_ex_reg.v";

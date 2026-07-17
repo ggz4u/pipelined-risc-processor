@@ -1,0 +1,429 @@
+<<<<<<< HEAD
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_011B9818 .scope module, "ex_mem_reg_tb" "ex_mem_reg_tb" 2 1;
+ .timescale 0 0;
+v011EAA98_0 .var "alu_result_in", 7 0;
+v011EAB48_0 .net "alu_result_out", 7 0, v011BEF70_0; 1 drivers
+v011EB018_0 .var "carry_in", 0 0;
+v011EAE60_0 .net "carry_out", 0 0, v011E3858_0; 1 drivers
+v011EAEB8_0 .var "clk", 0 0;
+v011EABA0_0 .var "flush", 0 0;
+v011EB070_0 .var "imm_addr_in", 7 0;
+v011EAC50_0 .net "imm_addr_out", 7 0, v011E41E0_0; 1 drivers
+v011EABF8_0 .var "jump_enable_in", 0 0;
+v011EADB0_0 .net "jump_enable_out", 0 0, C4<z>; 0 drivers
+v011EAE08_0 .var "mem_read_in", 0 0;
+v011EA938_0 .net "mem_read_out", 0 0, C4<z>; 0 drivers
+v011EB598_0 .var "mem_write_in", 0 0;
+v011EBB18_0 .net "mem_write_out", 0 0, C4<z>; 0 drivers
+v011EBBC8_0 .var "pc_in", 7 0;
+v011EB9B8_0 .net "pc_out", 7 0, v011E52B0_0; 1 drivers
+v011EBC20_0 .var "rd_in", 2 0;
+v011EB540_0 .net "rd_out", 2 0, v011EACA8_0; 1 drivers
+v011EBA10_0 .var "reg_write_in", 0 0;
+v011EBC78_0 .net "reg_write_out", 0 0, C4<z>; 0 drivers
+v011EB960_0 .var "rst", 0 0;
+v011EBA68_0 .var "store_data_in", 7 0;
+v011EB5F0_0 .net "store_data_out", 7 0, v011EAD00_0; 1 drivers
+v011EB648_0 .var "wb_select_in", 0 0;
+v011EB8B0_0 .net "wb_select_out", 0 0, C4<z>; 0 drivers
+v011EB6A0_0 .var "zero_flag_in", 0 0;
+v011EB908_0 .net "zero_flag_out", 0 0, v011EAAF0_0; 1 drivers
+S_011B9020 .scope module, "dut" "ex_mem_reg" 2 31, 3 1, S_011B9818;
+ .timescale 0 0;
+v011BC5B8_0 .net "alu_result_in", 7 0, v011EAA98_0; 1 drivers
+v011BEF70_0 .var "alu_result_out", 7 0;
+v011BAED8_0 .net "carry_in", 0 0, v011EB018_0; 1 drivers
+v011E3858_0 .var "carry_out", 0 0;
+v011E38B0_0 .net "clk", 0 0, v011EAEB8_0; 1 drivers
+v011E4130_0 .net "flush", 0 0, v011EABA0_0; 1 drivers
+v011E4188_0 .net "imm_addr_in", 7 0, v011EB070_0; 1 drivers
+v011E41E0_0 .var "imm_addr_out", 7 0;
+v011B3348_0 .net "jump_enable_in", 0 0, v011EABF8_0; 1 drivers
+v011B33A0_0 .var "jump_enable_out", 0 0;
+v011B33F8_0 .net "mem_read_in", 0 0, v011EAE08_0; 1 drivers
+v011BDCE8_0 .var "mem_read_out", 0 0;
+v011BDD40_0 .net "mem_write_in", 0 0, v011EB598_0; 1 drivers
+v011BDD98_0 .var "mem_write_out", 0 0;
+v011E5258_0 .net "pc_in", 7 0, v011EBBC8_0; 1 drivers
+v011E52B0_0 .var "pc_out", 7 0;
+v011E5308_0 .net "rd_in", 2 0, v011EBC20_0; 1 drivers
+v011EACA8_0 .var "rd_out", 2 0;
+v011EAF10_0 .net "reg_write_in", 0 0, v011EBA10_0; 1 drivers
+v011EAFC0_0 .var "reg_write_out", 0 0;
+v011EAD58_0 .net "rst", 0 0, v011EB960_0; 1 drivers
+v011EA990_0 .net "store_data_in", 7 0, v011EBA68_0; 1 drivers
+v011EAD00_0 .var "store_data_out", 7 0;
+v011EAF68_0 .net "wb_select_in", 0 0, v011EB648_0; 1 drivers
+v011EA9E8_0 .var "wb_select_out", 0 0;
+v011EAA40_0 .net "zero_flag_in", 0 0, v011EB6A0_0; 1 drivers
+v011EAAF0_0 .var "zero_flag_out", 0 0;
+E_011E2F50 .event posedge, v011EAD58_0, v011E38B0_0;
+    .scope S_011B9020;
+T_0 ;
+    %wait E_011E2F50;
+    %load/v 8, v011EAD58_0, 1;
+    %load/v 9, v011E4130_0, 1;
+    %or 8, 9, 1;
+    %jmp/0xz  T_0.0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011E52B0_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011EAFC0_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011BDCE8_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011BDD98_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011EA9E8_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011B33A0_0, 0, 0;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011BEF70_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011E3858_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011EAAF0_0, 0, 0;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011EAD00_0, 0, 0;
+    %ix/load 0, 3, 0;
+    %assign/v0 v011EACA8_0, 0, 0;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011E41E0_0, 0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v011E5258_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011E52B0_0, 0, 8;
+    %load/v 8, v011EAF10_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011EAFC0_0, 0, 8;
+    %load/v 8, v011B33F8_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011BDCE8_0, 0, 8;
+    %load/v 8, v011BDD40_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011BDD98_0, 0, 8;
+    %load/v 8, v011EAF68_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011EA9E8_0, 0, 8;
+    %load/v 8, v011B3348_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011B33A0_0, 0, 8;
+    %load/v 8, v011BC5B8_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011BEF70_0, 0, 8;
+    %load/v 8, v011BAED8_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011E3858_0, 0, 8;
+    %load/v 8, v011EAA40_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011EAAF0_0, 0, 8;
+    %load/v 8, v011EA990_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011EAD00_0, 0, 8;
+    %load/v 8, v011E5308_0, 3;
+    %ix/load 0, 3, 0;
+    %assign/v0 v011EACA8_0, 0, 8;
+    %load/v 8, v011E4188_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011E41E0_0, 0, 8;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_011B9818;
+T_1 ;
+    %vpi_call 2 57 "$dumpfile", "ex_mem_reg_tb.vcd";
+    %vpi_call 2 58 "$dumpvars", 1'sb0, S_011B9818;
+    %vpi_call 2 59 "$monitor", "Time: %2d | clk: %b | rst: %b | flush: %b | pc_in: %h | pc_out: %h | reg_write_in: %b | reg_write_out: %b | mem_read_in: %b | mem_read_out: %b | mem_write_in: %b | mem_write_out: %b | wb_select_in: %b | wb_select_out: %b | jump_enable_in: %b | jump_enable_out: %b | alu_result_in: %h | alu_result_out: %h | carry_in: %b | carry_out: %b | zero_flag_in: %b | zero_flag_out: %b | store_data_in: %h | store_data_out: %h | rd_in: %b | rd_out: %b | imm_addr_in: %h | imm_addr_out: %h", $time, v011EAEB8_0, v011EB960_0, v011EABA0_0, v011EBBC8_0, v011EB9B8_0, v011EBA10_0, v011EBC78_0, v011EAE08_0, v011EA938_0, v011EB598_0, v011EBB18_0, v011EB648_0, v011EB8B0_0, v011EABF8_0, v011EADB0_0, v011EAA98_0, v011EAB48_0, v011EB018_0, v011EAE60_0, v011EB6A0_0, v011EB908_0, v011EBA68_0, v011EB5F0_0, v011EBC20_0, v011EB540_0, v011EB070_0, v011EAC50_0;
+    %end;
+    .thread T_1;
+    .scope S_011B9818;
+T_2 ;
+    %set/v v011EAEB8_0, 0, 1;
+    %end;
+    .thread T_2;
+    .scope S_011B9818;
+T_3 ;
+    %delay 5, 0;
+    %load/v 8, v011EAEB8_0, 1;
+    %inv 8, 1;
+    %set/v v011EAEB8_0, 8, 1;
+    %jmp T_3;
+    .thread T_3;
+    .scope S_011B9818;
+T_4 ;
+    %set/v v011EB960_0, 0, 1;
+    %set/v v011EABA0_0, 0, 1;
+    %set/v v011EBA10_0, 0, 1;
+    %set/v v011EAE08_0, 0, 1;
+    %set/v v011EB598_0, 0, 1;
+    %set/v v011EB648_0, 0, 1;
+    %set/v v011EABF8_0, 0, 1;
+    %set/v v011EBBC8_0, 0, 8;
+    %set/v v011EAA98_0, 0, 8;
+    %set/v v011EB018_0, 0, 1;
+    %set/v v011EB6A0_0, 0, 1;
+    %set/v v011EBA68_0, 0, 8;
+    %set/v v011EBC20_0, 0, 3;
+    %set/v v011EB070_0, 0, 8;
+    %set/v v011EB960_0, 1, 1;
+    %delay 10, 0;
+    %set/v v011EB960_0, 0, 1;
+    %movi 8, 170, 8;
+    %set/v v011EBBC8_0, 8, 8;
+    %movi 8, 85, 8;
+    %set/v v011EAA98_0, 8, 8;
+    %set/v v011EB018_0, 1, 1;
+    %set/v v011EB6A0_0, 0, 1;
+    %set/v v011EBA68_0, 1, 8;
+    %movi 8, 5, 3;
+    %set/v v011EBC20_0, 8, 3;
+    %movi 8, 18, 8;
+    %set/v v011EB070_0, 8, 8;
+    %delay 10, 0;
+    %set/v v011EABA0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v011EABA0_0, 0, 1;
+    %movi 8, 187, 8;
+    %set/v v011EBBC8_0, 8, 8;
+    %movi 8, 102, 8;
+    %set/v v011EAA98_0, 8, 8;
+    %set/v v011EB018_0, 0, 1;
+    %set/v v011EB6A0_0, 1, 1;
+    %movi 8, 238, 8;
+    %set/v v011EBA68_0, 8, 8;
+    %movi 8, 6, 3;
+    %set/v v011EBC20_0, 8, 3;
+    %movi 8, 52, 8;
+    %set/v v011EB070_0, 8, 8;
+    %delay 10, 0;
+    %vpi_call 2 113 "$finish";
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "ex_mem_reg_tb.v";
+    "ex_mem_reg.v";
+=======
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_011B9818 .scope module, "ex_mem_reg_tb" "ex_mem_reg_tb" 2 1;
+ .timescale 0 0;
+v011EAA98_0 .var "alu_result_in", 7 0;
+v011EAB48_0 .net "alu_result_out", 7 0, v011BEF70_0; 1 drivers
+v011EB018_0 .var "carry_in", 0 0;
+v011EAE60_0 .net "carry_out", 0 0, v011E3858_0; 1 drivers
+v011EAEB8_0 .var "clk", 0 0;
+v011EABA0_0 .var "flush", 0 0;
+v011EB070_0 .var "imm_addr_in", 7 0;
+v011EAC50_0 .net "imm_addr_out", 7 0, v011E41E0_0; 1 drivers
+v011EABF8_0 .var "jump_enable_in", 0 0;
+v011EADB0_0 .net "jump_enable_out", 0 0, C4<z>; 0 drivers
+v011EAE08_0 .var "mem_read_in", 0 0;
+v011EA938_0 .net "mem_read_out", 0 0, C4<z>; 0 drivers
+v011EB598_0 .var "mem_write_in", 0 0;
+v011EBB18_0 .net "mem_write_out", 0 0, C4<z>; 0 drivers
+v011EBBC8_0 .var "pc_in", 7 0;
+v011EB9B8_0 .net "pc_out", 7 0, v011E52B0_0; 1 drivers
+v011EBC20_0 .var "rd_in", 2 0;
+v011EB540_0 .net "rd_out", 2 0, v011EACA8_0; 1 drivers
+v011EBA10_0 .var "reg_write_in", 0 0;
+v011EBC78_0 .net "reg_write_out", 0 0, C4<z>; 0 drivers
+v011EB960_0 .var "rst", 0 0;
+v011EBA68_0 .var "store_data_in", 7 0;
+v011EB5F0_0 .net "store_data_out", 7 0, v011EAD00_0; 1 drivers
+v011EB648_0 .var "wb_select_in", 0 0;
+v011EB8B0_0 .net "wb_select_out", 0 0, C4<z>; 0 drivers
+v011EB6A0_0 .var "zero_flag_in", 0 0;
+v011EB908_0 .net "zero_flag_out", 0 0, v011EAAF0_0; 1 drivers
+S_011B9020 .scope module, "dut" "ex_mem_reg" 2 31, 3 1, S_011B9818;
+ .timescale 0 0;
+v011BC5B8_0 .net "alu_result_in", 7 0, v011EAA98_0; 1 drivers
+v011BEF70_0 .var "alu_result_out", 7 0;
+v011BAED8_0 .net "carry_in", 0 0, v011EB018_0; 1 drivers
+v011E3858_0 .var "carry_out", 0 0;
+v011E38B0_0 .net "clk", 0 0, v011EAEB8_0; 1 drivers
+v011E4130_0 .net "flush", 0 0, v011EABA0_0; 1 drivers
+v011E4188_0 .net "imm_addr_in", 7 0, v011EB070_0; 1 drivers
+v011E41E0_0 .var "imm_addr_out", 7 0;
+v011B3348_0 .net "jump_enable_in", 0 0, v011EABF8_0; 1 drivers
+v011B33A0_0 .var "jump_enable_out", 0 0;
+v011B33F8_0 .net "mem_read_in", 0 0, v011EAE08_0; 1 drivers
+v011BDCE8_0 .var "mem_read_out", 0 0;
+v011BDD40_0 .net "mem_write_in", 0 0, v011EB598_0; 1 drivers
+v011BDD98_0 .var "mem_write_out", 0 0;
+v011E5258_0 .net "pc_in", 7 0, v011EBBC8_0; 1 drivers
+v011E52B0_0 .var "pc_out", 7 0;
+v011E5308_0 .net "rd_in", 2 0, v011EBC20_0; 1 drivers
+v011EACA8_0 .var "rd_out", 2 0;
+v011EAF10_0 .net "reg_write_in", 0 0, v011EBA10_0; 1 drivers
+v011EAFC0_0 .var "reg_write_out", 0 0;
+v011EAD58_0 .net "rst", 0 0, v011EB960_0; 1 drivers
+v011EA990_0 .net "store_data_in", 7 0, v011EBA68_0; 1 drivers
+v011EAD00_0 .var "store_data_out", 7 0;
+v011EAF68_0 .net "wb_select_in", 0 0, v011EB648_0; 1 drivers
+v011EA9E8_0 .var "wb_select_out", 0 0;
+v011EAA40_0 .net "zero_flag_in", 0 0, v011EB6A0_0; 1 drivers
+v011EAAF0_0 .var "zero_flag_out", 0 0;
+E_011E2F50 .event posedge, v011EAD58_0, v011E38B0_0;
+    .scope S_011B9020;
+T_0 ;
+    %wait E_011E2F50;
+    %load/v 8, v011EAD58_0, 1;
+    %load/v 9, v011E4130_0, 1;
+    %or 8, 9, 1;
+    %jmp/0xz  T_0.0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011E52B0_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011EAFC0_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011BDCE8_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011BDD98_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011EA9E8_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011B33A0_0, 0, 0;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011BEF70_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011E3858_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011EAAF0_0, 0, 0;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011EAD00_0, 0, 0;
+    %ix/load 0, 3, 0;
+    %assign/v0 v011EACA8_0, 0, 0;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011E41E0_0, 0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v011E5258_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011E52B0_0, 0, 8;
+    %load/v 8, v011EAF10_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011EAFC0_0, 0, 8;
+    %load/v 8, v011B33F8_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011BDCE8_0, 0, 8;
+    %load/v 8, v011BDD40_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011BDD98_0, 0, 8;
+    %load/v 8, v011EAF68_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011EA9E8_0, 0, 8;
+    %load/v 8, v011B3348_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011B33A0_0, 0, 8;
+    %load/v 8, v011BC5B8_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011BEF70_0, 0, 8;
+    %load/v 8, v011BAED8_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011E3858_0, 0, 8;
+    %load/v 8, v011EAA40_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v011EAAF0_0, 0, 8;
+    %load/v 8, v011EA990_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011EAD00_0, 0, 8;
+    %load/v 8, v011E5308_0, 3;
+    %ix/load 0, 3, 0;
+    %assign/v0 v011EACA8_0, 0, 8;
+    %load/v 8, v011E4188_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v011E41E0_0, 0, 8;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_011B9818;
+T_1 ;
+    %vpi_call 2 57 "$dumpfile", "ex_mem_reg_tb.vcd";
+    %vpi_call 2 58 "$dumpvars", 1'sb0, S_011B9818;
+    %vpi_call 2 59 "$monitor", "Time: %2d | clk: %b | rst: %b | flush: %b | pc_in: %h | pc_out: %h | reg_write_in: %b | reg_write_out: %b | mem_read_in: %b | mem_read_out: %b | mem_write_in: %b | mem_write_out: %b | wb_select_in: %b | wb_select_out: %b | jump_enable_in: %b | jump_enable_out: %b | alu_result_in: %h | alu_result_out: %h | carry_in: %b | carry_out: %b | zero_flag_in: %b | zero_flag_out: %b | store_data_in: %h | store_data_out: %h | rd_in: %b | rd_out: %b | imm_addr_in: %h | imm_addr_out: %h", $time, v011EAEB8_0, v011EB960_0, v011EABA0_0, v011EBBC8_0, v011EB9B8_0, v011EBA10_0, v011EBC78_0, v011EAE08_0, v011EA938_0, v011EB598_0, v011EBB18_0, v011EB648_0, v011EB8B0_0, v011EABF8_0, v011EADB0_0, v011EAA98_0, v011EAB48_0, v011EB018_0, v011EAE60_0, v011EB6A0_0, v011EB908_0, v011EBA68_0, v011EB5F0_0, v011EBC20_0, v011EB540_0, v011EB070_0, v011EAC50_0;
+    %end;
+    .thread T_1;
+    .scope S_011B9818;
+T_2 ;
+    %set/v v011EAEB8_0, 0, 1;
+    %end;
+    .thread T_2;
+    .scope S_011B9818;
+T_3 ;
+    %delay 5, 0;
+    %load/v 8, v011EAEB8_0, 1;
+    %inv 8, 1;
+    %set/v v011EAEB8_0, 8, 1;
+    %jmp T_3;
+    .thread T_3;
+    .scope S_011B9818;
+T_4 ;
+    %set/v v011EB960_0, 0, 1;
+    %set/v v011EABA0_0, 0, 1;
+    %set/v v011EBA10_0, 0, 1;
+    %set/v v011EAE08_0, 0, 1;
+    %set/v v011EB598_0, 0, 1;
+    %set/v v011EB648_0, 0, 1;
+    %set/v v011EABF8_0, 0, 1;
+    %set/v v011EBBC8_0, 0, 8;
+    %set/v v011EAA98_0, 0, 8;
+    %set/v v011EB018_0, 0, 1;
+    %set/v v011EB6A0_0, 0, 1;
+    %set/v v011EBA68_0, 0, 8;
+    %set/v v011EBC20_0, 0, 3;
+    %set/v v011EB070_0, 0, 8;
+    %set/v v011EB960_0, 1, 1;
+    %delay 10, 0;
+    %set/v v011EB960_0, 0, 1;
+    %movi 8, 170, 8;
+    %set/v v011EBBC8_0, 8, 8;
+    %movi 8, 85, 8;
+    %set/v v011EAA98_0, 8, 8;
+    %set/v v011EB018_0, 1, 1;
+    %set/v v011EB6A0_0, 0, 1;
+    %set/v v011EBA68_0, 1, 8;
+    %movi 8, 5, 3;
+    %set/v v011EBC20_0, 8, 3;
+    %movi 8, 18, 8;
+    %set/v v011EB070_0, 8, 8;
+    %delay 10, 0;
+    %set/v v011EABA0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v011EABA0_0, 0, 1;
+    %movi 8, 187, 8;
+    %set/v v011EBBC8_0, 8, 8;
+    %movi 8, 102, 8;
+    %set/v v011EAA98_0, 8, 8;
+    %set/v v011EB018_0, 0, 1;
+    %set/v v011EB6A0_0, 1, 1;
+    %movi 8, 238, 8;
+    %set/v v011EBA68_0, 8, 8;
+    %movi 8, 6, 3;
+    %set/v v011EBC20_0, 8, 3;
+    %movi 8, 52, 8;
+    %set/v v011EB070_0, 8, 8;
+    %delay 10, 0;
+    %vpi_call 2 113 "$finish";
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "ex_mem_reg_tb.v";
+    "ex_mem_reg.v";
+>>>>>>> 9d7d4de1716e196a3a5cb570e5450076a7de0be8
