@@ -88,6 +88,10 @@ wire [7:0] mem_wb_alu_result;
 wire [7:0] mem_wb_mem_data;
 wire [2:0] mem_wb_rd;
 
+
+wire flush_id_ex_jmp;
+assign flush_id_ex_jmp = ex_mem_jump_enable;
+
 // WRITEBACK Stage
 // wb_writeback_data declared above (used in Execute forwarding too)   
 
@@ -115,8 +119,8 @@ assign flush_if_id = id_ex_jump_enable;
 program_counter pc_inst(
     .clk(clk),
     .rst(rst),
-    .jump_enable(ex_mem_jump_enable),
-    .jump_addr(ex_mem_imm_addr),
+    .jump_enable(id_ex_jump_enable),   // from ID/EX
+    .jump_addr(id_ex_imm_addr),        // from ID/EX — same register, same cycle
     .pc_write(pc_write),
     .pc(pc_out)
 );
