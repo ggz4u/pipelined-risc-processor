@@ -1,5 +1,6 @@
-# 5 Stage Pipelined 8-bit RISC Processor
+# 🚀 5-Stage Pipelined 8-bit RISC Processor
 
+An open-source, 8-bit Reduced Instruction Set Computer (RISC) processor designed with a 5-stage pipeline architecture. This project implements a custom Instruction Set Architecture (ISA) and is built using Verilog. It is fully verifiable using open-source simulation tools.
 
 ### Pipeline Stages Breakdown
 1. **Instruction Fetch (IF):** Fetches the target instruction from Instruction Memory using the Program Counter (PC).
@@ -27,35 +28,41 @@
 
 ---
 
-## Architecture
+## 🖥️ Architecture & Verification
+
+### Hardware Architecture
 ![Architecture](Output/architecture.png)
 
----
-
-## Output Waveform
+### Simulation Output Waveform
 ![Output](Output/output_waveform.png)
 
 ---
 
-## 🛠️ Simulation & Toolchain
+# 🛠️ Simulation & Toolchain
 
 ### Prerequisites
-To simulate and view the waveforms, make sure you have the following open-source or commercial tools installed:
+To simulate and view the waveforms locally, ensure you have the following tools installed:
 * **Simulator:** [Icarus Verilog](http://iverilog.icarus.com/) (recommended) or Vivado/ModelSim
 * **Waveform Viewer:** [GTKWave](https://gtkwave.sourceforge.net/)
 
-### How to Run Simulation
+### Quick Start Guide
 
-Clone the repository and run the simulation using the terminal:
+Clone the repository and run the simulation using your terminal:
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/ggz4u/pipelined-risc-processor.git](https://github.com/ggz4u/pipelined-risc-processor.git)
+git clone https://github.com/ggz4u/pipelined-risc-processor.git
 cd pipelined-risc-processor
 
 # 2. Compile the design files and testbench
 iverilog -o riscv_tb.vvp pipelined_top_tb.v pipelined_top.v
 
+# 3. Run the simulation
+vvp riscv_tb.vvp
+
+# 4. Open the waveform in GTKWave
+gtkwave vcd/pipelined_top_tb.vcd
+```
 # 3. Run the simulation
 vvp riscv_tb.vvp
 
