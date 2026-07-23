@@ -1,4 +1,4 @@
-# 🚀 5-Stage Pipelined 8-bit RISC Processor
+# 5-Stage Pipelined 8-bit RISC Processor
 
 An open-source, 8-bit Reduced Instruction Set Computer (RISC) processor designed with a 5-stage pipeline architecture. This project implements a custom Instruction Set Architecture (ISA) and is built using Verilog. It is fully verifiable using open-source simulation tools.
 
