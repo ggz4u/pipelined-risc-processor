@@ -27,9 +27,14 @@
 
 ---
 
+## Architecture
+![Architecture](Output/architecture.png)
+
+---
+
 ## 🛠️ Simulation & Toolchain
 
-![Architecture](Output/architecture.png)
+![Architecture](Output/output_waveform.png)
 
 ### Prerequisites
 To simulate and view the waveforms, make sure you have the following open-source or commercial tools installed:
@@ -52,4 +57,4 @@ iverilog -o riscv_tb.vvp pipelined_top_tb.v pipelined_top.v
 vvp riscv_tb.vvp
 
 # 4. Open the waveform in GTKWave
-gtkwave pipelined_top_tb.vcd
+gtkwave vcd/pipelined_top_tb.vcd
