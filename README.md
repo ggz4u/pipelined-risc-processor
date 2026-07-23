@@ -32,9 +32,12 @@
 
 ---
 
-## 🛠️ Simulation & Toolchain
+## Output Waveform
+![Output](Output/output_waveform.png)
 
-![Architecture](Output/output_waveform.png)
+---
+
+## 🛠️ Simulation & Toolchain
 
 ### Prerequisites
 To simulate and view the waveforms, make sure you have the following open-source or commercial tools installed:
