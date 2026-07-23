@@ -29,6 +29,8 @@
 
 ## 🛠️ Simulation & Toolchain
 
+# ![Architecture](output/architecture.png)
+
 ### Prerequisites
 To simulate and view the waveforms, make sure you have the following open-source or commercial tools installed:
 * **Simulator:** [Icarus Verilog](http://iverilog.icarus.com/) (recommended) or Vivado/ModelSim
