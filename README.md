@@ -55,10 +55,10 @@ git clone https://github.com/ggz4u/pipelined-risc-processor.git
 cd pipelined-risc-processor
 
 # 2. Compile the design files and testbench
-iverilog -o riscv_tb.vvp pipelined_top_tb.v pipelined_top.v
+iverilog -o vvp/pipelined_top_tb.vvp tb/pipelined_top_tb.v src/pipelined_top.v src/alu.v src/register_file.v src/program_counter.v src/instruction_memory.v src/decoder.v src/data_memory.v src/control_unit.v src/if_id_reg.v src/id_ex_reg.v src/ex_mem_reg.v src/mem_wb_reg.v src/forwarding_unit.v src/hazard_detection_unit.v
 
 # 3. Run the simulation
-vvp riscv_tb.vvp
+vvp vvp/pipelined_top_tb.vvp
 
 # 4. Open the waveform in GTKWave
 gtkwave vcd/pipelined_top_tb.vcd
