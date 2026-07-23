@@ -63,8 +63,3 @@ vvp riscv_tb.vvp
 # 4. Open the waveform in GTKWave
 gtkwave vcd/pipelined_top_tb.vcd
 ```
-# 3. Run the simulation
-vvp riscv_tb.vvp
-
-# 4. Open the waveform in GTKWave
-gtkwave vcd/pipelined_top_tb.vcd
