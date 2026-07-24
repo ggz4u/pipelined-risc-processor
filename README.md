@@ -32,19 +32,19 @@ An open-source, 8-bit Reduced Instruction Set Computer (RISC) processor designed
  
 This is the core challenge of pipelined design. Three types of hazards are fully handled:
  
-### Data Hazards — Forwarding Unit
+### Data Hazards - Forwarding Unit
 When an instruction depends on the result of a previous instruction still in the pipeline, the processor forwards the result directly from a later pipeline stage back to the EX stage input, avoiding a stall.
  
 - **EX/MEM Forwarding (`forward_A = 10` or `forward_B = 10`):** Result from the EX/MEM pipeline register is forwarded to the ALU input of the current instruction in EX stage. Fires when the instruction two steps ahead writes to a register the current instruction reads.
 - **MEM/WB Forwarding (`forward_A = 01` or `forward_B = 01`):** Result from the MEM/WB pipeline register is forwarded to the ALU input. Fires when the instruction three steps ahead writes to a register which the current instruction reads.
-### Load-Use Hazard — Stall & Bubble Insertion
+### Load-Use Hazard - Stall & Bubble Insertion
 Forwarding alone cannot resolve a **load-use hazard** — when a LOAD is immediately followed by an instruction that uses the loaded value (the value isn't available until the end of MEM stage, one cycle too late for forwarding).
  
 **Resolution:** The Hazard Detection Unit detects this case and:
 1. Freezes the PC and IF/ID register for one cycle (`pc_write = 0`, `stall_if_id = 1`)
 2. Inserts a NOP(No Operation) bubble into the ID/EX register (`flush_id_ex = 1`)
 3. Forwarding then resolves the dependency in the next cycle
-### Control Hazards — Pipeline Flush on JMP
+### Control Hazards - Pipeline Flush on JMP
 When a JMP instruction is decoded, one instruction has already been fetched into IF/ID that should not execute. The processor flushes this incorrectly fetched instruction (replaces it with a NOP bubble) and redirects the PC to the jump target address.
  
 ---
